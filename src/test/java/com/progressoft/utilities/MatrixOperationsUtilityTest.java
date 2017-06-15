@@ -100,14 +100,14 @@ public class MatrixOperationsUtilityTest {
 	}
 
 	@Test(expected = Exception.class)
-	public void multiply_PassingSecondMatrixWithDifferentRowsLengths_ShouldThrowAnException() {
+	public void givenMatheMaticalMatrixOperationsMoldel_CallingMultiply_PassingSecondMatrixWithDifferentRowsLengths_ShouldThrowAnException() {
 		int firstMatrix[][] = new int[2][2];
 		int secondMatrix[][] = { { 1, 2 }, { 1, 2, 3 } };
 		matrixOperationsUtility.multiply(firstMatrix, secondMatrix);
 	}
 
 	@Test (expected =  IncompatibleArgumentsException.class)
-	public void addOper_PassingRowsOfMatrixNonEqule() {
+	public void givenMathematicalMatrixOperationsModel_CallingAddMethod_PassingColumnNonEqualsSizesMatrices_ThrowIncompatibleArgumentsException() {
 		int firstMatrix[][] = new int[2][2];
 		int secondMatrix[][] = new int[2][1];
 		matrixOperationsUtility.add(firstMatrix,secondMatrix);
