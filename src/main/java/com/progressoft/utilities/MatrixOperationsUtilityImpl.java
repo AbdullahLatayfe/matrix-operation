@@ -7,13 +7,13 @@ public class MatrixOperationsUtilityImpl implements MatrixOperationsUtility {
 
     @Override
     public int[][] add(int[][] a, int[][] b) throws IncompatibleArgumentsException {
-        int[][] newArray;
-        newArray = new int[a.length][b[0].length];
-        validateCheckSizeOfArray(a, b);
+        int[][] result;
+        result = new int[a.length][b[0].length];
+        validateSizeOfArray(a, b);
         for (int rows = 0; rows < a.length; rows++)
             for (int column = 0; column < a[rows].length; column++)
-                newArray[rows][column] = a[rows][column] + b[rows][column];
-        return newArray;
+                result[rows][column] = a[rows][column] + b[rows][column];
+        return result;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MatrixOperationsUtilityImpl implements MatrixOperationsUtility {
     public int[][] multiply(int[][] a, int[][] b) throws IncompatibleArgumentsException {
         int[][] result;
         int sum = 0;
-        validateMultiplyCheckSize(a, b);
+        validateMultiplySize(a, b);
         result = new int[a.length][a.length];
         for (int rows = 0; rows < a.length; rows++) {
             for (int rowsSec = 0; rowsSec < a.length; rowsSec++) {
@@ -55,7 +55,7 @@ public class MatrixOperationsUtilityImpl implements MatrixOperationsUtility {
         return result;
     }
 
-    private void validateCheckSizeOfArray(int[][] a, int[][] b) throws IncompatibleArgumentsException {
+    private void validateSizeOfArray(int[][] a, int[][] b) throws IncompatibleArgumentsException {
         if (a.length != b.length) {
             throw new IncompatibleArgumentsException("The rows are not same size");
         } else {
@@ -68,7 +68,7 @@ public class MatrixOperationsUtilityImpl implements MatrixOperationsUtility {
     }
 
 
-    private void validateMultiplyCheckSize(int[][] a, int[][] b) throws IncompatibleArgumentsException {
+    private void validateMultiplySize(int[][] a, int[][] b) throws IncompatibleArgumentsException {
         if (a.length == 0 || b.length == 0) {
             throw new IncompatibleArgumentsException("The size is 0");
         }
